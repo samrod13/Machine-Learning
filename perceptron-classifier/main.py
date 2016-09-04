@@ -1,8 +1,10 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib.colors import ListedColormap
 import numpy as np
 from perceptron import Perceptron
 
+def plot_decision_regions(x, y)
 # Read in the iris dataset
 df = pd.read_csv(
     'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data', header=None)

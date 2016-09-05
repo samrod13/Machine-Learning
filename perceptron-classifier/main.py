@@ -5,7 +5,7 @@ import numpy as np
 from perceptron import Perceptron
 
 
-def plot_decision_regions(X, y, classifier, resolution=0.02)
+def plot_decision_regions(X, y, classifier, resolution=0.02):
 # setup marker generator and color map
     markers = ('s', 'x', 'o', '^', 'v')
     colors = ('red', 'blue', 'lightgreen', 'gray', 'cyan')
@@ -14,11 +14,11 @@ def plot_decision_regions(X, y, classifier, resolution=0.02)
     # plot the decision surface
     x1_min, x1_max = X[:, 0].min() - 1, X[:, 0].max() + 1
     x2_min, x2_max = X[:, 1].min() - 1, X[:, 1].max() + 1
-    xx1, xx2 = np.meshgrid(np.arrange(
-        x1_min, x1_max, resolution), np.arrange(x2_min, x2_max, resolution))
+    xx1, xx2 = np.meshgrid(np.arange(
+        x1_min, x1_max, resolution), np.arange(x2_min, x2_max, resolution))
     z = classifier.predict(np.array([xx1.ravel(), xx2.ravel()]).T)
     z = z.reshape(xx1.shape)
-    plt.countourf(xx1, xx2, z, alpha=0.4, cmap=cmap)
+    plt.contourf(xx1, xx2, z, alpha=0.4, cmap=cmap)
     plt.xlim(xx1.min(), xx1.max())
     plt.ylim(xx2.min(), xx2.max())
 
@@ -48,7 +48,13 @@ ppn = Perceptron(eta=0.1, n_iter=10)
 ppn.fit(x, y)
 
 # plot out the results
-plt.plot(range(1, len(ppn.errors_) + 1), ppn.errors_, marker='o')
-plt.xlabel('Epochs')
-plt.ylabel('Number of misclassifications')
+#plt.plot(range(1, len(ppn.errors_) + 1), ppn.errors_, marker='o')
+#plt.xlabel('Epochs')
+#plt.ylabel('Number of misclassifications')
+#plt.show()
+
+plot_decision_regions(x,y, classifier=ppn)
+plt.xlabel('sepal length [cm]')
+plt.ylabel('petal length [cm]')
+plt.legend(loc='upper left')
 plt.show()

@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class AdalineGD(object):
     """ Adaptive Linear Neuron Classifier
 
@@ -18,6 +19,7 @@ class AdalineGD(object):
         Number of misclassifications in every epoch
 
     """
+
     def __init__(self, eta=0.01, n_iter=50):
         self.eta = eta
         self.n_iter = n_iter
@@ -48,8 +50,6 @@ class AdalineGD(object):
             cost = (errors**2).sum() / 2.0
             self.cost_.append(cost)
         return self
-
-
 
     def net_input(self, X):
         """Calculate the net input"""
